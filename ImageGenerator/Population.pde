@@ -107,6 +107,14 @@ class Population {
       this.bestDNA = this.currentDNA.cloneDNA();
       this.bestImg = this.currentImg;
       this.bestScore = this.currentScore;
+      
+      if (bestCount == 100) {
+        bestCount = 0;
+        this.pg.save("../images/best_" + count + ".png");
+        count += 1;
+      } else {
+        bestCount += 1;
+      }
     }
     
     this.currentDNA = null;

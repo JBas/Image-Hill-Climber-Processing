@@ -1,10 +1,13 @@
 static PImage target;
 static Population population;
+static int bestCount, count;
 
 static int imgW, imgH;
 
 void setup() {
   size(400, 200);
+  bestCount = 0;
+  count = 0;
   
   target = loadImage("img.png");
   imgW = target.width;
