@@ -91,4 +91,59 @@ class DNA {
     
     return clone;
   }
+  
+  void importDNA() {
+    JSONObject json = loadJSONObject("../best.json");
+    
+    population.currentDNA.numOfPolygons = json.getInt("numOfPolygons");
+    population.currentDNA.numOfVertices = json.getInt("numOfVertices");
+    
+    JSONArray polys = json.getJSONArray("polygons");
+    for (int i = 0; i < polys.size(); i++) {
+      JSONObject poly = polys.getJSONObject(i);
+      population.currentDNA.r[i] = poly.getInt("r");
+      population.currentDNA.g[i] = poly.getInt("g");
+      population.currentDNA.b[i] = poly.getInt("b");
+      population.currentDNA.a[i] = poly.getInt("a");
+      
+      JSONArray x = poly.getJSONArray("xpoints");
+      JSONArray y = poly.getJSONArray("ypoints");
+      for (int j = 0; j < population.currentDNA.numOfVertices; j++) {
+        population.currentDNA.xpoints[i][j] = x.getInt(j);
+        population.currentDNA.ypoints[i][j] = y.getInt(j);
+      }
+    }
+  }
+  
+  void saveDNA() {
+    JSONObject json;
+    JSONArray polys = new JSONArray();
+    
+    for (int i = 0; i < this.numOfPolygons; i++) {
+      JSONObject poly = new JSONObject();
+      poly.setInt("r", this.r[i]);
+      poly.setInt("g", this.g[i]);
+      poly.setInt("b", this.b[i]);
+      poly.setInt("a", this.a[i]);
+      
+      JSONArray x = new JSONArray();
+      JSONArray y = new JSONArray();
+      
+      for (int j = 0; j < this.numOfVertices; j++) {
+        x.setInt(j, this.xpoints[i][j]);
+        y.setInt(j, this.ypoints[i][j]);
+      }
+      
+      poly.setJSONArray("xpoints", x);
+      poly.setJSONArray("ypoints", y);
+      
+      polys.setJSONObject(i, poly);
+    }
+    
+    json = new JSONObject();
+    json.setInt("numOfPolygons", this.numOfPolygons);
+    json.setInt("numOfVertices", this.numOfVertices);
+    json.setJSONArray("polygons", polys);
+    saveJSONObject(json, "../best.json");
+  }
 }

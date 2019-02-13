@@ -117,8 +117,6 @@ class Population {
       }
     }
     
-    this.currentDNA = null;
-    this.currentImg = null;
     this.currentScore = -1;
   }
 }
