@@ -16,7 +16,7 @@ void setup() {
   
   target.loadPixels();
   
-  population = new Population(5, 3);
+  population = new Population(1000, 12);
   saveButton = new Button(100, 250, 100, 50, "SAVE", "SAVE");
   importButton = new Button(300, 250, 100, 50, "IMPORT", "IMPORT");
   
