@@ -108,7 +108,7 @@ class Population {
       this.bestImg = this.currentImg;
       this.bestScore = this.currentScore;
       
-      if (bestCount == 100) {
+      if (bestCount == 1000) {
         bestCount = 0;
         this.pg.save("../images/best_" + count + ".png");
         count += 1;
