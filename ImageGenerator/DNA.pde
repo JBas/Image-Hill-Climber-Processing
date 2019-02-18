@@ -97,6 +97,7 @@ class DNA {
     
     population.currentDNA.numOfPolygons = json.getInt("numOfPolygons");
     population.currentDNA.numOfVertices = json.getInt("numOfVertices");
+    count = json.getInt("count");
     
     JSONArray polys = json.getJSONArray("polygons");
     for (int i = 0; i < polys.size(); i++) {
@@ -143,6 +144,7 @@ class DNA {
     json = new JSONObject();
     json.setInt("numOfPolygons", this.numOfPolygons);
     json.setInt("numOfVertices", this.numOfVertices);
+    json.setInt("count", count);
     json.setJSONArray("polygons", polys);
     saveJSONObject(json, "../best.json");
   }

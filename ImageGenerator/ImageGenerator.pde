@@ -22,13 +22,15 @@ void setup() {
   
 }
 
+void mousePressed() {
+  importButton.updateButton();
+  saveButton.updateButton();
+}
+
 void draw() {
   background(0);
   
-  importButton.updateButton();
   importButton.showButton();
-  
-  saveButton.updateButton();
   saveButton.showButton();
   
   population.run();

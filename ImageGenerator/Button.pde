@@ -20,7 +20,7 @@ class Button {
   }
   
   void updateButton() {
-    if (mousePressed && (mouseButton == LEFT)) {
+    if (mouseButton == LEFT) {
       if ((mouseX <= this.x + (this.w/2)) &&
           (mouseX >= this.x - (this.w/2)) &&
           (mouseY <= this.y + (this.h/2)) &&
