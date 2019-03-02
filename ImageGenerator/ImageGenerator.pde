@@ -35,6 +35,6 @@ void draw() {
   
   population.run();
   
-  image(target, 0, 0);
-  image(population.bestImg, imgW, 0);
+  //image(target, 0, 0);
+  //image(population.bestImg, imgW, 0);
 }
